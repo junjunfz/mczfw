@@ -1,0 +1,12 @@
+<script>
+var spanElement = document.querySelector('span[ip]');  
+var ip = spanElement.getAttribute('ip');    
+fetch('https://list.mczfw.cn/api/' + ip) 
+  .then(response => response.json())  
+  .then(data =>{
+	spanElement.textContent = data.p+'/'+data.mp;
+  })  
+  .catch(error => console.error('Error:', error));
+  </script>
+
+<span ip="mc.hypixel.net"></span>
